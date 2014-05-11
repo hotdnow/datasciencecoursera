@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>CodeBook.md</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>CodeBook.md</h1>
+
+<h2>Assignment 1 - Getting and Cleaning Data</h2>
+
+<p>Purpose: This CodeBook file will describe the variables and the data used in the analysis.
+This file should be read in conjunction with the accompanying Readme.md file.</p>
+
+<h3>The source of data is as follows:</h3>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>The variables contained in the analysis are as follows (Note: some of the excerpts below are directly taken from the informational files accompanying the source data.)</p>
+
+<p>For each record it is provided:</p>
+
+<ul>
+<li>Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</li>
+<li>Triaxial Angular velocity from the gyroscope. </li>
+<li>A 561-feature vector with time and frequency domain variables. </li>
+<li>Its activity label. </li>
+<li>An identifier of the subject who carried out the experiment.</li>
+</ul>
+
+<h3>Feature Selection and Variables</h3>
+
+<p>Description of variables and variable names:</p>
+
+<p>The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc and tGyro. These time domain signals (prefix &#39;t&#39; to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBody.Acc and tGravity.Acc) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. </p>
+
+<p>Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBody.AccJerk) and (tBody.GyroJerk). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBody.AccMag, tGravity.AccMag, tBody.AccJerkMag, tBody.GyroMag, tBody.GyroJerkMag). </p>
+
+<p>These signals were used to estimate variables of the feature vector for each pattern in the X, Y and Z directions.</p>
+
+<p>The variable names reflect the naming conventions described in the above paragraphs. In addition, please note that in the variable names below, &#39;mean&#39; refers to &#39;mean value&#39; and &#39;std&#39; refers to &#39;standard deviation&#39;</p>
+
+<p>Accelerometer measurements of body signals:</p>
+
+<p>tBody.Acc.mean.X,<br/>
+tBody.Acc.mean.Y,<br/>
+tBody.Acc.mean.Z<br/>
+tBody.Acc.stddev.X<br/>
+tBody.Acc.stddev.Y<br/>
+tBody.Acc.stddev.Z   </p>
+
+<p>Accelerometer measurements of gravity signals:</p>
+
+<p>tGravity.Acc.mean.X<br/>
+tGravity.Acc.mean.Y<br/>
+tGravity.Acc.mean.Z<br/>
+tGravity.Acc.stddev.X<br/>
+tGravity.Acc.stddev.Y<br/>
+tGravity.Acc.stddev.Z </p>
+
+<p>Accelerometer measurements of body Jerk signals:</p>
+
+<p>tBody.AccJerk.mean.X<br/>
+tBody.AccJerk.mean.Y<br/>
+tBody.AccJerk.mean.Z<br/>
+tBody.AccJerk.stddev.X<br/>
+tBody.AccJerk.stddev.Y<br/>
+tBody.AccJerk.stddev.Z   </p>
+
+<p>Gyroscope measurements of body signals:</p>
+
+<p>tBody.Gyro.mean.X<br/>
+tBody.Gyro.mean.Y<br/>
+tBody.Gyro.mean.Z<br/>
+tBody.Gyro.stddev.X<br/>
+tBody.Gyro.stddev.Y<br/>
+tBody.Gyro.stddev.Z   </p>
+
+<p>Gyroscope measurements of body Jerk signals:</p>
+
+<p>tBody.GyroJerk.mean.X<br/>
+tBody.GyroJerk.mean.Y<br/>
+tBody.GyroJerk.mean.Z<br/>
+tBody.GyroJerk.stddev.X<br/>
+tBody.GyroJerk.stddev.Y<br/>
+tBody.GyroJerk.stddev.Z   </p>
+
+<p>Magnitude of the accelerometer and gyroscope three-dimensional signals:</p>
+
+<p>tBody.AccMag.mean<br/>
+tBody.AccMag.stddev<br/>
+tGravity.AccMag.mean<br/>
+tGravity.AccMag.stddev<br/>
+tBody.AccJerkMag.mean<br/>
+tBody.AccJerkMag.stddev<br/>
+tBody.GyroMag.mean<br/>
+tBody.GyroMag.stddev<br/>
+tBody.GyroJerkMag.mean<br/>
+tBody.GyroJerkMag.stddev   </p>
+
+<p>In this analysis, means were calculated across all participants in the study for each of the above 40 variables. These means were provided by each of the six activities for which information was available (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, and LAYING).</p>
+
+<p>.</p>
+
+</body>
+
+</html>
+
