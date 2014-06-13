@@ -108,26 +108,12 @@ pred_valid_rf <- predict(modelFit, valid_testPC)
 confus <- confusionMatrix(small_valid$classe, pred_valid_rf)
 confus$table
 
-# Confusion Matrix
-
-#          Reference
-# Prediction    A    B    C    D    E
-#          A 1669    1    1    1    2
-#          B   19 1103   16    0    1
-#          C    0   17 1004    5    0
-#          D    1    0   33  930    0
-#          E    0    5    5    1 1071
-
-
 # The estimated out-of-sample error is 1.000 minus the model's accuracy, the later of which is provided
 # in the output of the confusionmatrix, or more directly via the 'postresample' function. 
 
 accur <- postResample(small_valid$classe, pred_valid_rf)
 model_accuracy <- round(accur[[1]],3)
 out_of_sample_error <- 1 - model_accuracy
-
-#  Accuracy     Kappa 
-# 0.9816483 0.9767795 
 
 # Apply the pre-processing to the original testing dataset, after removing the extraneous column labeled
 # 'problem_id' (column 54). We then run our model against the testing dataset and display the
@@ -136,23 +122,4 @@ out_of_sample_error <- 1 - model_accuracy
 testPC <- predict(preProc, wm_test_final[,-54])
 pred_final <- predict(modelFit, testPC)
 pred_final
-
-# B A A A A E D B A A B C B A E E A B B B (using cross validation)
-# B A B A A E D B A A B C B A E E A B B B (using bootstrapping) <- these turned out to be correct
-
-
-# Save the predictions as a vector that is then passed into the 'pml_write_files' function. The 
-# function will create the 20 individual text files for project submission.
-
-predictions <- as.vector(pred_final)
-
-pml_write_files = function(x){
-     n = length(x)
-     for(i in 1:n){
-          filename = paste0("problem_id_",i,".txt")
-          write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
-     }
-}
-
-pml_write_files(predictions)
 
